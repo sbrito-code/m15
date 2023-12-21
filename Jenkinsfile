@@ -9,7 +9,9 @@ pipeline {
     stages {
         stage('Build') { 
             steps { 
-                sh "docker build -t ${env.RepoDockerHub}/${env.NameContainer}:${env.BUILD_NUMBER} ."
+                dir ('Docker'){
+                    sh "docker build -t ${env.RepoDockerHub}/${env.NameContainer}:${env.BUILD_NUMBER} ."
+                }
             }
         }
 
