@@ -14,6 +14,7 @@ pipeline {
                 sh 'chmod +x ~/bin/hadolint'
             }
         }
+    }
 
     stage('Lint Dockerfile') {
         steps {
