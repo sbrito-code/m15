@@ -14,21 +14,19 @@ pipeline {
                 sh 'chmod +x ~/bin/hadolint'
             }
         }
-    }
 
-    stage('Lint Dockerfile') {
-        steps {
-            script {
-                def hadolintExitCode = sh(script: "~/bin/hadolint Dockerfile", returnStatus: true)
-                if (hadolintExitCode != 0) {
-                    currentBuild.result = 'FAILURE'
-                    error("Hadolint found issues in the Dockerfile")
+        stage('Lint Dockerfile') {
+            steps {
+                script {
+                    def hadolintExitCode = sh(script: "~/bin/hadolint Dockerfile", returnStatus: true)
+                    if (hadolintExitCode != 0) {
+                        currentBuild.result = 'FAILURE'
+                        error("Hadolint found issues in the Dockerfile")
+                    }
                 }
             }
         }
-    }
 
-    stages {
         stage('Build') { 
             steps { 
                 sh "docker build -t ${env.RepoDockerHub}/${env.NameContainer}:${env.BUILD_NUMBER} ."
