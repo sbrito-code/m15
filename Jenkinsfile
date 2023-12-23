@@ -3,7 +3,7 @@ pipeline {
     environment{
         DOCKERHUB_CREDENCIALS = credentials ('dockerhub')
         RepoDockerHub = 'sergiodvz'
-        NameContainer = 'crypto'
+        NameContainer = 'app_crypto'
     }
 
     stages {

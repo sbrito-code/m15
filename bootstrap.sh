@@ -16,6 +16,3 @@ sudo chmod +x /usr/local/bin/hadolint
 
 # Install Java
 sudo apt-get install fontconfig openjdk-11-jre -y
-
-#Jenkins install
-#J
